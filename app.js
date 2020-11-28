@@ -161,7 +161,7 @@ const products = [
     {name: 'gold star', price: 20},
     {name: 'mushroom', price: 40}, 
     {name: 'green shell', price: 30}, 
-    {name: 'banana skin', price: 10}, 
+    {name: 'banana skin', price: 60}, 
     {name: 'red shells', price: 50}
 ]
 
@@ -177,5 +177,46 @@ const sale = products.map(product => {
 console.log(sale);
 console.log(products);
 
+// ************************
+// javascript map() and reduce() methods
+
+const newString = "The quick brown fox jumped over the lazy dog."
 
 
+const capitalize = (string) => {
+    let arrayOfString = string.split(' ');
+    let answer = '';
+    arrayOfString.map(word => {
+        word = word.toUpperCase();
+        answer += `${word} `
+    })
+    return answer
+}
+console.log(capitalize(newString));
+
+const swapCase = (string) => {
+    let capitalizedString = capitalize(string).split(' ');
+    let answer = '';
+    capitalizedString.map((word, index) => {
+        if(index%2 === 1){
+            word = word.toLowerCase();
+            answer += `${word} `;
+        }else {
+            answer += `${word} `
+        }
+    });      
+    return answer;
+}
+console.log(swapCase(newString));
+
+
+
+
+//find methods 
+
+console.log(products.find(product => {       // the products array is taken from the above examples of filter method
+    return product.price > 40;
+}));
+console.log(products.filter(product => {
+    return product.price > 40;
+}));
