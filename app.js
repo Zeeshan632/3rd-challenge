@@ -220,3 +220,36 @@ console.log(products.find(product => {       // the products array is taken from
 console.log(products.filter(product => {
     return product.price > 40;
 }));
+
+// practicing reduce methods
+
+const practicingArray = [2, 4, 2, 5];
+let ansByReducing = practicingArray.reduce((acc, curr) => {
+    return acc + curr;
+}, 0);
+let ansByReducing2 = practicingArray.reduce((acc, curr) => {
+    return acc + curr.toString();
+}, "This is a string: ");
+console.log(ansByReducing);
+
+
+var voters = [
+    {name:'Bob' , age: 30, voted: true},
+    {name:'Jake' , age: 32, voted: true},
+    {name:'Kate' , age: 25, voted: false},
+    {name:'Sam' , age: 20, voted: false},
+    {name:'Phil' , age: 21, voted: true},
+    {name:'Ed' , age:55, voted:true},
+    {name:'Tami' , age: 54, voted:true},
+    {name: 'Mary', age: 31, voted: false},
+    {name: 'Becky', age: 43, voted: false},
+    {name: 'Joey', age: 41, voted: true},
+    {name: 'Jeff', age: 30, voted: true},
+    {name: 'Zack', age: 19, voted: false}
+];
+let totalvoters = voters.reduce((acc, curr) => {
+    if(curr.voted){
+        return acc++;
+    }
+}, 0);
+console.log(totalvoters);
